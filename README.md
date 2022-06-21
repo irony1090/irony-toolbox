@@ -24,7 +24,7 @@ $ yarn add @irony0901/toolbox
 ### filterVariable(origin, variable)
 **Examples1**
 ``` javascript
-import { filterVariable } from '@irony/toolbox';
+import { filterVariable } from '@irony0901/toolbox';
 
 const origin = {
   name: 'irony',
@@ -49,7 +49,7 @@ console.log( '[variables2]', variables2 ) // '[variables2]' { name: 'Irony', gen
 
 **Examples2**
 ``` javascript
-import { filterVariable } from '@irony/toolbox';
+import { filterVariable } from '@irony0901/toolbox';
 
 const origin = {
   arrs: [ 1, 2, 3 ],
@@ -82,7 +82,7 @@ console.log( '[variables2]', variables2 ) // '[variables2]' { obj: { id: 1 } }
 ### isContains(subject, compare)
 **Examples**
 ``` javascript
-import { isContains } from '@irony/toolbox';
+import { isContains } from '@irony0901/toolbox';
 
 const subjectIrony = {
   id: 1,
@@ -107,7 +107,7 @@ console.log( isContains(subjectFakeIrony, compare2) ) // false
 ### deepClone(object)
 **Examples**
 ```javascript
-import { deepClone } from '@irony/toolbox';
+import { deepClone } from '@irony0901/toolbox';
 
 const object = {
   id: 1,
@@ -154,7 +154,7 @@ console.log( deepClone(object) )
 #### filterDuplication(arr)
 **Examples1**
 ```javascript
-import { filterDuplication } from '@irony/toolbox';
+import { filterDuplication } from '@irony0901/toolbox';
 
 const arr = [
   { id: 1, site: 'google'},
@@ -180,7 +180,7 @@ console.log( filterDuplication(arr) )
 #### filterDuplication(arr, key)
 **Examples2**
 ```javascript
-import { filterDuplication } from '@irony/toolbox';
+import { filterDuplication } from '@irony0901/toolbox';
 
 const arr = [
   { id: 1, site: 'google', type: 'search', ord: 1},
@@ -221,7 +221,7 @@ console.log( filterDuplication(arr, 'site') )
 #### filterDuplication(arr, keys)
 **Examples3**
 ```javascript
-import { filterDuplication } from '@irony/toolbox';
+import { filterDuplication } from '@irony0901/toolbox';
 
 const arr = [
   { id: 1, site: 'google', type: 'search', ord: 1 },
@@ -267,7 +267,7 @@ console.log( filterDuplication(arr, ['id', 'site', 'ord']) )
 ### deepForEach(object, predict: (key: string|number, value: any, wrap: any) => any)
 **Examples**
 ```javascript
-import { deepForEach } from '@irony/toolbox';
+import { deepForEach } from '@irony0901/toolbox';
 
 const obj = {
   id: 'obj-1',
@@ -325,7 +325,7 @@ deepForEach( obj, (key, val, wrap) => {
 ### splitToObject(object, predict: (key: string|number, value: any, wrap: any) => any)
 **Examples**
 ```javascript
-import { splitToObject } from '@irony/toolbox';
+import { splitToObject } from '@irony0901/toolbox';
 
 const orderByString = 'id-DESC';
 const orderByString2 = 'id';
