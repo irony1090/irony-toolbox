@@ -8,7 +8,7 @@
 # Download
 To install ironyToolbox, use yarn
 ```
-$ yarn add @irony/toolbox
+$ yarn add @irony0901/toolbox
 ```
 ## Methods
 * [filterVariable](#filterVariable)
