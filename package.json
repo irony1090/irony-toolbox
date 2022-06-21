@@ -4,7 +4,7 @@
   "description": "basic utility functions",
   "author": {
     "name": "irony1090",
-    "email": "irony1090@kakao.com",
+    "email": "strike910901@gmail.com",
     "url": "https://github.com/irony1090"
   },
   "browser": "dist/index.js",
@@ -14,6 +14,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/irony1090/irony-toolbox"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "build:dec": "rollup -c && tsc --emitDeclarationOnly",
