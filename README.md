@@ -342,3 +342,6 @@ console.log( result2 ); // { name1: 'id', name2: 'DESC' }
 console.log( result3 ); // { column: 'id', orderBy: undefined }
 console.log( result4 ); // { column: 'id', orderBy: 'ASC' }    
 ```   
+
+## License
+[MIT](LICENSE)

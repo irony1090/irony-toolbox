@@ -1,9 +1,9 @@
 {
-  "name": "@irony/toolbox",
-  "version": "0.1.0",
+  "name": "@irony0901/toolbox",
+  "version": "0.7.1",
   "description": "basic utility functions",
   "author": {
-    "name": "irony1090",
+    "name": "irony19",
     "email": "strike910901@gmail.com",
     "url": "https://github.com/irony1090"
   },
