@@ -11,14 +11,121 @@ To install ironyToolbox, use yarn
 $ yarn add @irony0901/toolbox
 ```
 ## Methods
+* [deepSelectFlatMap](#deepSelectFlatMap)
 * [filterVariable](#filterVariable)
 * [isContains](#isContains)
 * [deepClone](#deepClone)
 * [filterDuplication](#filterDuplication)
 * [deepForEach](#deepForEach)
 * [splitToObject](#splitToObject)
-* [getIdsRecord](#getIdsRecord) (Coming soon example)
-* [initBoolean](#initBoolean) (Coming soon example)
+* [getIdsRecord](#getIdsRecord)
+* [initBoolean](#initBoolean)
+
+## deepSelectFlatMap
+### deepSelectFlatMap(object: any, absoluteKey: string, predict: (param: LocationInfo) => any)
+#### Parameter
+- object: any
+- absoluteKey: string   
+  The path you want. separated by '.' **.**   
+  Except for the path of the array, only enter the field name of the object.
+- predict: (param: LocationInfo) => any
+  LocationInfo   
+    root: Root of the object   
+    absoluteKeys: Path from the root. Array form   
+    absoluteKey: Path from the root. string form   
+    wrapper: Direct parent   
+    fieldName: field name within direct parent   
+    field: The value you want   
+
+**Examples**
+``` javascript
+import { deepSelectFlatMap } from '@irony0901/toolbox';
+
+const object = {
+  persons: [
+    { name: "aName" },
+    { 
+      name: "bName", 
+      histories: [
+        { 
+          title: 'first job of b',
+          keywords: [ 'game', 'social', 'study' ] 
+        },
+        { 
+          title: 'experience of b',
+          keywords: [ 'climbing', 'execise', 'positive' ] 
+        }
+      ]
+    },
+    { 
+      name: "cName", 
+      histories: [
+        { 
+          title: 'c is empty',
+          keywords: undefined
+        }
+      ]
+    },
+    { 
+      name: "dName", 
+      histories: [
+        { 
+          title: 'umm... d is....', 
+          keywords: [ 'Unemployed', 'effort', 'selfSatisfaction' ] 
+        }
+      ]
+    }
+  ],
+  type: "category1"
+}
+
+deepSelectFlatMap(anyObject, 'persons.name', ({ fieldName, field }) => {
+  console.log(fieldName, field)
+})
+/**
+ * name aName
+ * name bName
+ * name cName
+ * name dName
+**/
+
+deepSelectFlatMap(anyObject, 'persons.histories', ({ fieldName, field }) => {
+  console.log(fieldName, field)
+})
+/**
+ * 0 { title: 'first job of b', keywords: [ 'game', 'social', 'study' ] }
+ * 
+ * 1 {
+ *   title: 'experience of b',
+ *   keywords: [ 'climbing', 'execise', 'positive' ]
+ * }
+ * 
+ * 0 { title: 'c is empty', keywords: undefined }
+ * 
+ * 0 {
+ *   title: 'umm... d is....',
+ *   keywords: [ 'Unemployed', 'effort', 'selfSatisfaction' ]
+ * }
+**/
+
+deepSelectFlatMap(anyObject, 'persons.histories.keywords', ({ fieldName, field }) => {
+  console.log(fieldName, field)
+})
+/**
+ * 0 game
+ * 1 social
+ * 2 study
+ * 0 climbing
+ * 1 execise
+ * 2 positive
+ * 0 Unemployed
+ * 1 effort
+ * 2 selfSatisfaction
+ * 
+**/
+
+```
+
 
 ## filterVariable
 ### filterVariable(origin, variable)
@@ -322,13 +429,19 @@ deepForEach( obj, (key, val, wrap) => {
 ```
 
 ## splitToObject
-### splitToObject(object, predict: (key: string|number, value: any, wrap: any) => any)
+### splitToObject(object: any, keys: Array<keyof object>, option?)
+#### Parameter
+- object: any
+- keys: Array<string>
+- option?: SplitToObjectOptions & Partial{ [K in keyof object]: string }
+  
 **Examples**
 ```javascript
 import { splitToObject } from '@irony0901/toolbox';
 
 const orderByString = 'id-DESC';
 const orderByString2 = 'id';
+const orderByString3 = 'id:primary';
 const result = splitToObject(orderByString, ['column', 'orderBy']);
 const result2 = splitToObject(orderByString, ['name1', 'name2']);
 const result3 = splitToObject(orderByString2, ['column', 'orderBy']);
@@ -337,11 +450,77 @@ const result4 = splitToObject(
   [ 'column', 'orderBy' ], 
   { def: { column: 'id', orderBy: 'ASC' } } 
 );
+const result5 = splitToObject(
+  orderByString3, 
+  [ 'column', 'type' ], 
+  { separator: ':' } 
+);
 console.log( result );  // { column: 'id', orderBy: 'DESC' }
 console.log( result2 ); // { name1: 'id', name2: 'DESC' }
 console.log( result3 ); // { column: 'id', orderBy: undefined }
 console.log( result4 ); // { column: 'id', orderBy: 'ASC' }    
+console.log( result5 ); // { column: 'id', type: 'primary' }   
 ```   
 
+## getIdsRecord
+### getIdsRecord( entities: Array<any>, keys: Array<string> )
+**Examples**
+```javascript
+import { getIdsRecord } from '@irony0901/toolbox';
+
+const entities = [
+  { id: 1, city: 'aArea', name: 'Aname', gender: 'M' },
+  { id: 2, city: 'aArea', name: 'Bname', gender: 'F' },
+  { id: 3, city: 'bArea', name: 'Cname', gender: 'F' },
+  { id: 4, city: 'cArea', name: 'Dname', gender: 'M' },
+]
+
+const result1 = getIdsRecord(entities, ['city'])
+/** {
+ *    city: [ 'aArea', 'bArea', 'cArea' ]
+ *  } 
+**/
+
+const result2 = getIdsRecord(entities, ['gender'])
+/** {
+ *    gender: [ 'M', 'F' ]
+ *  } 
+**/
+
+const result3 = getIdsRecord(entities, ['city', 'gender'])
+/** {
+ *    city: [ 'aArea', 'bArea', 'cArea' ],
+ *    gender: [ 'M', 'F' ]
+ *  } 
+**/
+
+const result4 = getIdsRecord(entities, ['id', 'city', 'name', 'gender'])
+/** {
+ *    id: [ 1, 2, 3, 4 ],
+ *    city: [ 'aArea', 'bArea', 'cArea' ],
+ *    name: [ 'Aname', 'Bname', 'Cname', 'Dname' ],
+ *    gender: [ 'M', 'F' ]
+ *  } 
+**/
+```
+
+## initBoolean
+### initBoolean(object: any)
+**Examples**
+```javascript
+import { initBoolean } from '@irony0901/toolbox';
+
+console.log(`undefined is ${initBoolean(undefined)}`) // false
+console.log(`null is ${initBoolean(null)}`) // false
+console.log(`true is ${initBoolean(true)}`) // true
+console.log(`false is ${initBoolean(false)}`) // false
+console.log(`1 is ${initBoolean(1)}`) // true
+console.log(`-1 is ${initBoolean(-1)}`) // false
+console.log(`0 is ${initBoolean(0)}`) // false
+console.log(`'a' is ${initBoolean(a)}`) // false
+console.log(`'true' is ${initBoolean('true')}`) // true
+console.log(`'on' is ${initBoolean('on')}`) // true
+console.log(`'yes' is ${initBoolean('yes')}`) // true
+```
 ## License
 [MIT](LICENSE)
