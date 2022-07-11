@@ -28,14 +28,14 @@ $ yarn add @irony0901/toolbox
 - absoluteKey: string   
   The path you want. separated by '.' **.**   
   Except for the path of the array, only enter the field name of the object.
-- predict: (param: LocationInfo) => any
-  LocationInfo   
-    root: Root of the object   
-    absoluteKeys: Path from the root. Array form   
-    absoluteKey: Path from the root. string form   
-    wrapper: Direct parent   
-    fieldName: field name within direct parent   
-    field: The value you want   
+- predict: (param: LocationInfo) => any   
+  **LocationInfo**
+  * root: Root of the object   
+  * absoluteKeys: Path from the root. Array form   
+  * absoluteKey: Path from the root. string form   
+  * wrapper: Direct parent   
+  * fieldName: field name within direct parent   
+  * field: The value you want   
 
 **Examples**
 ``` javascript
