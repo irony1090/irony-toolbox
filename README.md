@@ -517,7 +517,7 @@ console.log(`false is ${initBoolean(false)}`) // false
 console.log(`1 is ${initBoolean(1)}`) // true
 console.log(`-1 is ${initBoolean(-1)}`) // false
 console.log(`0 is ${initBoolean(0)}`) // false
-console.log(`'a' is ${initBoolean(a)}`) // false
+console.log(`'a' is ${initBoolean('a')}`) // false
 console.log(`'true' is ${initBoolean('true')}`) // true
 console.log(`'on' is ${initBoolean('on')}`) // true
 console.log(`'yes' is ${initBoolean('yes')}`) // true

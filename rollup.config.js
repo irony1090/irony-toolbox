@@ -18,7 +18,7 @@ const author = pkg.author;
 const banner = `
   /**
    * @license
-   * author: ${author}
+   * author: ${author.name}
    * ${moduleName}.js v${pkg.version}
    * Released under the ${pkg.license} license.
    */
@@ -108,18 +108,21 @@ export default [
         name: moduleName,
         file: pkg.browser,
         format: "iife",
-        sourcemap: "inline",
+        exports: "named",
+        // sourcemap: "inline",
         banner,
       },
       {
         name: moduleName,
         file: pkg.browser.replace(".js", ".min.js"),
         format: "iife",
-        sourcemap: "inline",
+        exports: "named",
+        // sourcemap: "inline",
         banner,
         // plugins: [terser()],
       },
     ],
+    // external: ['@irony0901/format'],
     // preserveModules: true,
     plugins: [
       pluginTypescript(typescriptConfig),

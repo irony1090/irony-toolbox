@@ -1,7 +1,6 @@
-import { DIMENSION_FORM, equals, isBlank, isNumberForm, isString, isUndeclared } from "./format";
+import { DIMENSION_FORM, equals, isBlank, isNumberForm, isString, isUndeclared } from "@irony0901/format";
 import { ArrayElementType, NN, PathString, Range, Relation } from "./type/index.type";
 
-export * as FormatBox from "./format";
 // export * as FormatBox from "./format";
 
 
