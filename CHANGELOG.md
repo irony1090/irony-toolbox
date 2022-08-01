@@ -1,9 +1,11 @@
 # IronyTool change log
 
+## 0.8.2
+* build I forgot
+
 ## 0.8.1
 * @irony0901/toolbox/type path to add utility type.
 * Script command change.
-
 
 ## 0.8.0
 
