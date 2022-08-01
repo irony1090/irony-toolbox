@@ -1,6 +1,6 @@
 {
   "name": "@irony0901/toolbox",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "basic utility functions",
   "author": {
     "name": "irony19",
@@ -11,6 +11,11 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "types": "dist/src/toolbox.d.ts",
+  "typesVersions": {
+    "*": {
+      "type": [ "dist/src/type/index.type.d.ts" ]
+    }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/irony1090/irony-toolbox"
@@ -19,8 +24,8 @@
     "access": "public"
   },
   "scripts": {
-    "build:dec": "rollup -c && tsc --emitDeclarationOnly",
-    "build": "rollup -c",
+    "build": "rollup -c && tsc --emitDeclarationOnly",
+    "build:c": "rollup -c",
     "build:test": "rollup -c ./test/main.ts",
     "dev": "rollup -c && node ./dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
