@@ -1,5 +1,11 @@
 # IronyTool change log
 
+## 0.8.6 (Yet...)
+* remove legacy files
+* Cancel ([0.8.4](#0.8.4)) 
+  - Move the contents of the "@irony0901/toolbox/type" path to the root path
+
+
 ## 0.8.5
 * modify path of type on package.json
 
