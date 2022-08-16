@@ -1,5 +1,8 @@
 # IronyTool change log
 
+## 0.8.5
+* modify path of type on package.json
+
 ## 0.8.4
 * Change dependency version
   - @irony0901/format v0.1.0 -> v0.1.2

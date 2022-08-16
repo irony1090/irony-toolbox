@@ -1,6 +1,6 @@
 {
   "name": "@irony0901/toolbox",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "description": "basic utility functions",
   "author": {
     "name": "irony19",
@@ -13,7 +13,7 @@
   "types": "dist/src/toolbox.d.ts",
   "typesVersions": {
     "*": {
-      "type": [ "dist/src/type/index.type.d.ts" ]
+      "type": [ "dist/src/types/index.type.d.ts" ]
     }
   },
   "repository": {
