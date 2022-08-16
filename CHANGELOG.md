@@ -1,7 +1,15 @@
 # IronyTool change log
 
+## 0.8.4
+* Change dependency version
+  - @irony0901/format v0.1.0 -> v0.1.2
+* Remove dependency 
+  - tslib
+* Cancel ([0.8.3](#0.8.3)) 
+  - Move the contents of the "@irony0901/toolbox/type" path to the root path
+
 ## 0.8.3
-* Move the contents of the "@irony0901/toolbox/type" path to the root path
+* ~~Move the contents of the "@irony0901/toolbox/type" path to the root path~~
 
 
 ## 0.8.2

@@ -903,10 +903,10 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@irony0901/format@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@irony0901/format/-/format-0.1.0.tgz#dc4eae838f1680fce247dbe22bd8db1cbd0b8f31"
-  integrity sha512-8Qr4oSOHOEzCZ3Isnan0Yj5zLmFu2ijz/GuQJmiHzyPpU7JqJ9C5dModQ1Qh7v5lynibI4qRtKMiHpR2wdMDVw==
+"@irony0901/format@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@irony0901/format/-/format-0.1.2.tgz#45250fe5e84bf6e171d174f464ccc316459712f0"
+  integrity sha512-YBNc5JbiU0IYnpVK5BjjY4EXwdnH2R4/wo+ndGCGiM0B9bD6zyMBm+HWB5Hw4BYauCO9AKnKQu/SjNk8izxZLA==
   dependencies:
     uuid "^8.3.2"
 
