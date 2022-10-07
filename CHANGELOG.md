@@ -1,6 +1,9 @@
 # IronyTool change log
 
-## 0.8.6 (Yet...)
+## 0.8.7
+* The build result in the browser is umd.
+
+## 0.8.6
 * remove legacy files
 * Cancel ([0.8.4](#0.8.4)) 
   - Move the contents of the "@irony0901/toolbox/type" path to the root path
